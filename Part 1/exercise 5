@@ -1,0 +1,21 @@
+C:\Users\camilla.colliander\dockercourse>docker run -d -it --name test ubuntu
+816ac81fbced9639493559c76f72cd281b298ac375d3a013d202b0474f227912
+
+C:\Users\camilla.colliander\dockercourse>docker container ls
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+816ac81fbced        ubuntu              "/bin/bash"         9 seconds ago       Up 8 seconds                            test
+
+C:\Users\camilla.colliander\dockercourse>docker exec -it test /bin/sh
+# apt-get update (hirveän monta riviä asennuksia tämän jälkeen joita en lisännyt tähän)
+# exit
+
+C:\Users\camilla.colliander\dockercourse>docker exec -it test sh -c "echo 'write website:'; read website; curl http://$website"
+write website:
+helsinki.fi
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
