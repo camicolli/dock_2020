@@ -1,0 +1,46 @@
+C:\Users\camilla.colliander\dockercourse>docker pull devopsdockeruh/exec_bash_exercise
+Using default tag: latest
+latest: Pulling from devopsdockeruh/exec_bash_exercise
+1c6172af85ee: Pull complete                                                                                                                                                 b194b0e3c928: Pull complete                                                                                                                                                 1f5ec00f35d5: Pull complete                                                                                                                                                 93b1353672b6: Pull complete                                                                                                                                                 3d7f38db3cca: Pull complete                                                                                                                                                 21e102f9fe89: Pull complete                                                                                                                                                 d851ffed797c: Pull complete                                                                                                                                                 a45031e28c68: Pull complete                                                                                                                                                 ca3c1414856f: Pull complete                                                                                                                                                 02c74c9936fd: Pull complete                                                                                                                                                 ddb55f8ab0a8: Pull complete                                                                                                                                                 Digest: sha256:d38b6f6b0eed2880e25c9eb7f83f1cd016ffe3a56c9a3fec6e7bee480bf1ed0f
+Status: Downloaded newer image for devopsdockeruh/exec_bash_exercise:latest
+docker.io/devopsdockeruh/exec_bash_exercise:latest
+
+C:\Users\camilla.colliander\dockercourse>docker images ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+
+C:\Users\camilla.colliander\dockercourse>docker image ls
+REPOSITORY                          TAG                 IMAGE ID            CREATED             SIZE
+devopsdockeruh/exec_bash_exercise   latest              c52ece77379e        2 days ago          942MB
+ubuntu                              latest              1d622ef86b13        6 weeks ago         73.9MB
+devopsdockeruh/pull_exercise        latest              d9854bc0e13a        15 months ago       75.3MB
+
+
+C:\Users\camilla.colliander\dockercourse>docker start epic_haibt
+epic_haibt
+
+C:\Users\camilla.colliander\dockercourse>docker container ls
+CONTAINER ID        IMAGE                               COMMAND                  CREATED             STATUS              PORTS               NAMES
+0a5f6a3a8509        devopsdockeruh/exec_bash_exercise   "docker-entrypoint.s…"   4 minutes ago       Up About a minute                       epic_haibt
+
+
+C:\Users\camilla.colliander\dockercourse>docker exec -it epic_haibt bash
+root@0a5f6a3a8509:/usr/app# tail -f ./logs.txt
+Fri, 05 Jun 2020 13:23:09 GMT
+Fri, 05 Jun 2020 13:23:12 GMT
+Fri, 05 Jun 2020 13:23:15 GMT
+Fri, 05 Jun 2020 13:23:18 GMT
+Secret message is:
+"Docker is easy"
+Fri, 05 Jun 2020 13:23:24 GMT
+Fri, 05 Jun 2020 13:23:27 GMT
+Fri, 05 Jun 2020 13:23:30 GMT
+Fri, 05 Jun 2020 13:23:33 GMT
+Secret message is:
+"Docker is easy"
+Fri, 05 Jun 2020 13:23:39 GMT
+Fri, 05 Jun 2020 13:23:42 GMT
+Fri, 05 Jun 2020 13:23:45 GMT
+kilFri, 05 Jun 2020 13:23:48 GMT
+l 1
+^C
+root@0a5f6a3a8509:/usr/app# kill 1
