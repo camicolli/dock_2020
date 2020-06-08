@@ -1,0 +1,21 @@
+docker build -t .
+Sending build context to Docker daemon  10.75kB
+Step 1/5 : FROM ubuntu:16.04
+ ---> 005d2078bdfa
+Step 2/5 : WORKDIR /mydir
+ ---> Using cache
+ ---> 99812570e5b6
+Step 3/5 : COPY websitefile.sh .
+ ---> Using cache
+ ---> ec829d073326
+Step 4/5 : RUN chmod u+x websitefile.sh
+ ---> Using cache
+ ---> ff94114802ed
+Step 5/5 : CMD ["./websitefile.sh"]
+ ---> Using cache
+ ---> 644389da1c05
+Successfully built 644389da1c05
+SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+
+C:\Users\camilla.colliander\dockercourse>docker run -d -it --rm --name curler 6443
+standard_init_linux.go:211: exec user process caused "no such file or directory"
