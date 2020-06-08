@@ -7,6 +7,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 
 C:\Users\camilla.colliander\dockercourse>docker exec -it test /bin/sh
 # apt-get update (hirveän monta riviä asennuksia tämän jälkeen joita en lisännyt tähän)
+# apt-get install curl (hirveän monta riviä asennuksia tämän jälkeen joita en lisännyt tähän)
 # exit
 
 C:\Users\camilla.colliander\dockercourse>docker exec -it test sh -c "echo 'write website:'; read website; curl http://$website"
