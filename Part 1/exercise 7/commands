@@ -1,21 +1,36 @@
-docker build -t .
-Sending build context to Docker daemon  10.75kB
+C:\Users\camilla.colliander\dockercourse>docker build .
+Sending build context to Docker daemon   12.8kB
 Step 1/5 : FROM ubuntu:16.04
  ---> 005d2078bdfa
 Step 2/5 : WORKDIR /mydir
  ---> Using cache
- ---> 99812570e5b6
+ ---> 8ce01c2d23cc
 Step 3/5 : COPY websitefile.sh .
  ---> Using cache
- ---> ec829d073326
+ ---> 987d1cf59022
 Step 4/5 : RUN chmod u+x websitefile.sh
  ---> Using cache
- ---> ff94114802ed
+ ---> 19f13f9f6e1d
 Step 5/5 : CMD ["./websitefile.sh"]
  ---> Using cache
- ---> 644389da1c05
-Successfully built 644389da1c05
+ ---> 275082f5ca80
+Successfully built 275082f5ca80
 SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
 
-C:\Users\camilla.colliander\dockercourse>docker run -d -it --rm --name curler 6443
-standard_init_linux.go:211: exec user process caused "no such file or directory"
+C:\Users\camilla.colliander\dockercourse>docker run --rm -it --name testi 2750
+write website:
+helsinki.fi
+...(A big installation for apt-update and curl that I'm not adding here)
+
+Running hooks in /etc/ca-certificates/update.d...
+done.
+searching...
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
+
+
