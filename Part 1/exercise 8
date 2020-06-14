@@ -1,0 +1,27 @@
+#First pull the image
+C:\Users\camilla.colliander\dockercourse>docker pull devopsdockeruh/first_volume_exercise
+Using default tag: latest
+latest: Pulling from devopsdockeruh/first_volume_exercise
+1c6172af85ee: Pull complete                                                                                             b194b0e3c928: Pull complete                                                                                             1f5ec00f35d5: Pull complete                                                                                             93b1353672b6: Pull complete                                                                                             3d7f38db3cca: Pull complete                                                                                             21e102f9fe89: Pull complete                                                                                             d851ffed797c: Pull complete                                                                                             a45031e28c68: Pull complete                                                                                             ca3c1414856f: Pull complete                                                                                             f092ecebb4a6: Pull complete                                                                                             b51567d0861f: Pull complete                                                                                             Digest: sha256:38dd790d251fa970e338546f1cc698214dbdbfb13a0b6b057177c20f960f31b2
+Status: Downloaded newer image for devopsdockeruh/first_volume_exercise:latest
+docker.io/devopsdockeruh/first_volume_exercise:latest
+
+#create a logal logfile where the logs from container will be mounted
+C:\Users\camilla.colliander\dockercourse>notepad logfile.txt
+
+#Run the contianer with -v command to mount the file
+C:\Users\camilla.colliander\dockercourse>docker run --rm -d -v C:\Users\camilla.colliander\dockercourse\logfile.txt:/usr/app/logs.txt 7ec9
+
+#check out the local logfile.
+C:\Users\camilla.colliander\dockercourse>notepad logfile.txt
+
+
+LOGFILE.TXT CONTENT:
+Sun, 14 Jun 2020 12:19:03 GMT
+Sun, 14 Jun 2020 12:19:06 GMT
+Sun, 14 Jun 2020 12:19:09 GMT
+Sun, 14 Jun 2020 12:19:12 GMT
+Secret message is:
+"Volume bind mount is easy"
+Sun, 14 Jun 2020 12:19:18 GMT
+Sun, 14 Jun 2020 12:19:21 GMT
