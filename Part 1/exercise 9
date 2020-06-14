@@ -1,0 +1,6 @@
+#Run the already pulled port exerciese image with port set to 8080
+docker run -d --rm -p 8080:80 40f5
+
+#Visit in browser 127:0.0.1:8080 and the text was:
+
+Ports configured correctly!!
