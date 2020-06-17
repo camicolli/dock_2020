@@ -4,3 +4,60 @@ C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-
 #create a local log.txt file
 C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-example-docker>notepad log.txt
 
+#create a container from the image and mount volume log.txt
+C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-example-docker>docker run -d -p 8080:8000 -v C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-example-docker\log.txt:/usr/app/logs.txt --name backendcontainer backend-image
+b5c0b69e2a00489a2e730277e282f91b3d94b847b1a8bee851d3430ee95d1f88
+
+#Let's checkout the site
+C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-example-docker>curl -v localhost:8080
+* Rebuilt URL to: localhost:8080/
+*   Trying ::1...
+* TCP_NODELAY set
+* Connected to localhost (::1) port 8080 (#0)
+> GET / HTTP/1.1
+> Host: localhost:8080
+> User-Agent: curl/7.55.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< X-Powered-By: Express
+< Access-Control-Allow-Origin:
+< Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 56
+< ETag: W/"38-kNCveM+0J9cBkxUgznUtzYVrhXE"
+< Date: Wed, 17 Jun 2020 14:01:40 GMT
+< Connection: keep-alive
+<
+Port configured correctly, generated message in logs.txt* Connection #0 to host localhost left intact
+
+#Now to check the log file is mounted correctly let's create some log activity.
+C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-example-docker>docker stop backendcontainer
+backendcontainer
+
+C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-example-docker>docker start backendcontainer
+backendcontainer
+
+C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-example-docker>curl -v localhost:8080
+* Rebuilt URL to: localhost:8080/
+*   Trying ::1...
+* TCP_NODELAY set
+* Connected to localhost (::1) port 8080 (#0)
+> GET / HTTP/1.1
+> Host: localhost:8080
+> User-Agent: curl/7.55.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< X-Powered-By: Express
+< Access-Control-Allow-Origin:
+< Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 56
+< ETag: W/"38-kNCveM+0J9cBkxUgznUtzYVrhXE"
+< Date: Wed, 17 Jun 2020 14:02:30 GMT
+< Connection: keep-alive
+<
+Port configured correctly, generated message in logs.txt* Connection #0 to host localhost left intact
+
+C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-example-docker>
