@@ -1,0 +1,6 @@
+#Building the image for backend
+C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-example-docker>docker build -t backend-image .
+
+#create a local log.txt file
+C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\backend-example-docker>notepad log.txt
+
