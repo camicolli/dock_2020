@@ -7,11 +7,11 @@ C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master>docker b
 C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master>notepad log.txt
 
 #Starting backend in port 8080 (8000 was buzy)
-C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master>docker run -d -p 8080:8000 -e "FRONT_URL=http//:localhost:5000" -v C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\log.txt:/usr/app/logs.txt --name bec backendcontainer
+C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master>docker run -d -p 8080:8000 -e "FRONT_URL=http://localhost:5000" -v C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\log.txt:/usr/app/logs.txt --name bec backendcontainer
 6dfe0d4b5a557751d3bff294a761e28bef58852fadde6e7265f06d6406d1d932
 
 #Starting frontend in port 5000
-C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master>docker run -d -p 5000:5000 -e "API_URL=http//:localhost:8080" -v C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\log.txt:/usr/app/logs.txt --name fec frontendcontainer
+C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master>docker run -d -p 5000:5000 -e "API_URL=http://localhost:8080" -v C:\Users\camilla.colliander\dockercourse\frontend-example-docker-master\log.txt:/usr/app/logs.txt --name fec frontendcontainer
 52a77fd2eae9b2232f07c4a49617892b5c68312d190878be74b90aa0005b700f
 
 
