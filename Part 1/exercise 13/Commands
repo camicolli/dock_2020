@@ -1,0 +1,7 @@
+C:\Users\camilla.colliander\dockercourse\youtube-dl>docker build -t youtube-dl .
+
+#A lot of steps and downloads here that I'm not going to add to save space
+
+C:\Users\camilla.colliander\dockercourse\javaspring-example>docker run -d -p 8080:8080 --name javaspringcontainer javaspring
+
+#Browser shows a button, which brings up the text "Success" after pressing it.
