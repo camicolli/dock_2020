@@ -1,0 +1,11 @@
+C:\Users\camilla.colliander\dockercourse\Part2>docker-compose up
+Removing exercise1
+Recreating d37f6810079f_exercise1 ... done                                                                              Attaching to exercise1
+exercise1    | Wrote to file /usr/app/logs.txt
+exercise1    | Wrote to file /usr/app/logs.txt
+exercise1    | Wrote to file /usr/app/logs.txt
+exercise1    | Wrote to file /usr/app/logs.txt
+exercise1    | Wrote to file /usr/app/logs.txt
+exercise1    | Wrote to file /usr/app/logs.txt
+Gracefully stopping... (press Ctrl+C again to force)
+Stopping exercise1                ... done
