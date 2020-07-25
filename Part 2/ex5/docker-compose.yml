@@ -1,0 +1,31 @@
+version: '3.5'
+
+services: 
+    backend:
+        container_name: backendwithredis
+        build: 
+            context: .
+            dockerfile: Dockerfile_back
+        volumes:
+            - type: bind
+              source: ./logs.txt
+              target: /usr/app/logs.txt
+        environment:
+            - FRONT_URL=http://localhost:8002
+            - REDIS=redis
+        ports:
+            - 8001:8000
+
+    frontend:
+        container_name: frontendwithredis
+        build:
+            context: .
+            dockerfile: Dockerfile_front
+        environment:
+            - API_URL=http://localhost:8001
+        ports:
+            - 8002:5000
+    
+    redis:
+        container_name: redis
+        image: redis
