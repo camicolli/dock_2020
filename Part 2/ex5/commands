@@ -1,0 +1,124 @@
+C:\Users\camilla.colliander\dockercourse\Part2\ex5>docker-compose up
+redis is up-to-date
+Creating backendwithredis  ... done                                                                                                                  Creating frontendwithredis ... done                                                                                                                  Attaching to redis, frontendwithredis, backendwithredis
+frontendwithredis |
+frontendwithredis | > frontend-example-docker@1.0.0 start /usr/app
+frontendwithredis | > webpack --mode production && serve -s -l 5000 dist
+frontendwithredis |
+redis       | 1:C 25 Jul 2020 10:39:16.476 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis       | 1:C 25 Jul 2020 10:39:16.476 # Redis version=6.0.6, bits=64, commit=00000000, modified=0, pid=1, just started
+redis       | 1:C 25 Jul 2020 10:39:16.476 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+redis       | 1:M 25 Jul 2020 10:39:16.477 * Running mode=standalone, port=6379.
+redis       | 1:M 25 Jul 2020 10:39:16.477 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+redis       | 1:M 25 Jul 2020 10:39:16.477 # Server initialized
+redis       | 1:M 25 Jul 2020 10:39:16.477 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+redis       | 1:M 25 Jul 2020 10:39:16.478 * Ready to accept connections
+backendwithredis |
+backendwithredis | > backend-example-docker@1.0.0 start /usr/app
+backendwithredis | > cross-env NODE_ENV=production node index.js
+backendwithredis |
+backendwithredis | Browserslist: caniuse-lite is outdated. Please run next command `npm update caniuse-lite browserslist`
+backendwithredis | Redis connection, initating..
+backendwithredis | Trying to set cache
+backendwithredis | Cache set successfully
+backendwithredis | Started on port 8000
+frontendwithredis | Hash: 4723faeb6b4edcccc800
+frontendwithredis | Version: webpack 4.42.1
+frontendwithredis | Time: 23693ms
+frontendwithredis | Built at: 07/25/2020 10:40:35 AM
+frontendwithredis |                                  Asset       Size  Chunks                    Chunk Names
+frontendwithredis | 0ab54153eeeca0ce03978cc463b257f7.woff2   39.2 KiB          [emitted]
+frontendwithredis |   13db00b7a34fee4d819ab7f9838cc428.eot   96.3 KiB          [emitted]
+frontendwithredis |   701ae6abd4719e9c2ada3535a497b341.eot   30.4 KiB          [emitted]
+frontendwithredis |   82f60bd0b94a1ed68b1e6e309ce2e8c3.svg    105 KiB          [emitted]
+frontendwithredis |   8e3c7f5520f5ae906c6cf6d7f3ddcd19.eot    104 KiB          [emitted]
+frontendwithredis |   962a1bf31c081691065fe333d9fa8105.svg    382 KiB          [emitted]  [big]
+frontendwithredis |   9c74e172f87984c48ddf5c8108cabe67.png   27.5 KiB          [emitted]
+frontendwithredis |  a046592bac8f2fd96e994733faf3858c.woff   62.2 KiB          [emitted]
+frontendwithredis |   a1a749e89f578a49306ec2b055c073da.svg    496 KiB          [emitted]  [big]
+frontendwithredis |   a3e2211dddcba197b5bbf2aa9d5d9a9a.svg   3.19 KiB          [emitted]
+frontendwithredis |   ad97afd3337e8cda302d10ff5a4026b8.ttf   30.2 KiB          [emitted]
+frontendwithredis |   b87b9ba532ace76ae9f6edfe9f72ded2.ttf    103 KiB          [emitted]
+frontendwithredis |   bff6c47a9da5c7cfa2e8a552e2df3a78.svg    3.2 KiB          [emitted]
+frontendwithredis |   c5ebe0b32dc1b5cc449a76c4204d13bb.ttf   96.1 KiB          [emitted]
+frontendwithredis | cd6c777f1945164224dee082abaea03a.woff2     12 KiB          [emitted]
+frontendwithredis | e8c322de9658cbeb8a774b6624167c2c.woff2   53.2 KiB          [emitted]
+frontendwithredis |  ef60a4f6c25ef7f39f2d25a748dbecfe.woff   14.4 KiB          [emitted]
+frontendwithredis |  faff92145777a3cbaf8e7367b4807987.woff   49.3 KiB          [emitted]
+frontendwithredis |                             index.html  454 bytes          [emitted]
+frontendwithredis |                               main.css  127 bytes       0  [emitted]         main
+frontendwithredis |                                main.js   21.8 KiB       0  [emitted]         main
+frontendwithredis |                     vendors~main-1.css    602 KiB       1  [emitted]  [big]  vendors~main
+frontendwithredis |                        vendors~main.js    342 KiB       1  [emitted]  [big]  vendors~main
+frontendwithredis |            vendors~main.js.LICENSE.txt   1.37 KiB          [emitted]
+frontendwithredis | Entrypoint main [big] = vendors~main-1.css vendors~main.js main.css main.js
+frontendwithredis |   [7] ./node_modules/semantic-ui-react/dist/es/lib/index.js + 1 modules 2.94 KiB {1} [built]
+frontendwithredis |       |    2 modules
+frontendwithredis |  [51] ./node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js + 1 modules 6.22 KiB {1} [built]
+frontendwithredis |       |    2 modules
+frontendwithredis |  [80] ./node_modules/react-redux/es/index.js + 19 modules 37 KiB {1} [built]
+frontendwithredis |       |    20 modules
+frontendwithredis |  [93] ./node_modules/semantic-ui-react/dist/es/elements/Label/Label.js + 2 modules 10.6 KiB {1} [built]
+frontendwithredis |       |    3 modules
+frontendwithredis | [212] (webpack)/buildin/global.js 472 bytes {1} [built]
+frontendwithredis | [251] ./src/assets/toscalogo_color.svg 82 bytes {0} [built]
+frontendwithredis | [252] ./src/assets/toscalogo_grayscale.svg 82 bytes {0} [built]
+frontendwithredis | [270] multi @babel/polyfill ./src 40 bytes {0} [built]
+frontendwithredis | [464] (webpack)/buildin/harmony-module.js 573 bytes {1} [built]
+frontendwithredis | [466] ./src/assets/custom.css 39 bytes {0} [built]
+frontendwithredis | [602] ./src/index.js + 18 modules 42.1 KiB {0} [built]
+frontendwithredis |       | ./src/index.js 609 bytes [built]
+frontendwithredis |       | ./src/util/store.js 481 bytes [built]
+frontendwithredis |       | ./util/common.js 117 bytes [built]
+frontendwithredis |       | ./src/util/apiConnection.js 4.57 KiB [built]
+frontendwithredis |       | ./src/util/redux/index.js 219 bytes [built]
+frontendwithredis |       | ./src/util/redux/messageReducer.js 2.15 KiB [built]
+frontendwithredis |       | ./src/util/redux/simpleReducer.js 1.86 KiB [built]
+frontendwithredis |       | ./src/util/common.js 221 bytes [built]
+frontendwithredis |       |     + 11 hidden modules
+frontendwithredis | [603] ./node_modules/semantic-ui-react/dist/es/elements/Button/Button.js + 3 modules 17.7 KiB {1} [built]
+frontendwithredis |       |    4 modules
+frontendwithredis | [612] ./node_modules/react-router-dom/es/BrowserRouter.js + 12 modules 41 KiB {1} [built]
+frontendwithredis |       |    13 modules
+frontendwithredis | [614] ./node_modules/react-router-dom/es/Switch.js + 1 modules 3.35 KiB {1} [built]
+frontendwithredis |       |    2 modules
+frontendwithredis | [615] ./node_modules/react-router-dom/es/Route.js + 1 modules 5.9 KiB {1} [built]
+frontendwithredis |       |    2 modules
+frontendwithredis |     + 989 hidden modules
+frontendwithredis |
+frontendwithredis | WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+frontendwithredis | This can impact web performance.
+frontendwithredis | Assets:
+frontendwithredis |   962a1bf31c081691065fe333d9fa8105.svg (382 KiB)
+frontendwithredis |   a1a749e89f578a49306ec2b055c073da.svg (496 KiB)
+frontendwithredis |   vendors~main-1.css (602 KiB)
+frontendwithredis |   vendors~main.js (342 KiB)
+frontendwithredis |
+frontendwithredis | WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+frontendwithredis | Entrypoints:
+frontendwithredis |   main (966 KiB)
+frontendwithredis |       vendors~main-1.css
+frontendwithredis |       vendors~main.js
+frontendwithredis |       main.css
+frontendwithredis |       main.js
+frontendwithredis |
+frontendwithredis |
+frontendwithredis | WARNING in webpack performance recommendations:
+frontendwithredis | You can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.
+frontendwithredis | For more info visit https://webpack.js.org/guides/code-splitting/
+frontendwithredis | Child html-webpack-plugin for "index.html":
+frontendwithredis |      1 asset
+frontendwithredis |     Entrypoint undefined = index.html
+frontendwithredis |     [2] (webpack)/buildin/global.js 472 bytes {0} [built]
+frontendwithredis |     [3] (webpack)/buildin/module.js 497 bytes {0} [built]
+frontendwithredis |         + 2 hidden modules
+frontendwithredis | Child mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/semantic-ui-css/semantic.min.css:
+frontendwithredis |     Entrypoint mini-css-extract-plugin = *
+frontendwithredis |        19 modules
+frontendwithredis | Child mini-css-extract-plugin node_modules/css-loader/index.js!src/assets/custom.css:
+frontendwithredis |     Entrypoint mini-css-extract-plugin = *
+frontendwithredis |     [0] ./node_modules/css-loader!./src/assets/custom.css 340 bytes {0} [built]
+frontendwithredis |         + 1 hidden module
+frontendwithredis | UPDATE AVAILABLE The latest version of `serve` is 11.3.2
+frontendwithredis | INFO: Accepting connections at http://localhost:5000
+backendwithredis | Got from redis pong
