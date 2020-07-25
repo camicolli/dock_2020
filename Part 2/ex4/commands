@@ -1,0 +1,9 @@
+# Since the result is right but just too slow, we can increse the speed by scaling the computing up.
+C:\Users\camilla.colliander\dockercourse\Part2\ex4\scaling-exercise-master\scaling-exercise-master>docker-compose up -d --scale compute=5
+Starting scaling-exercise-master_compute_1 ... done                                                                                   
+Starting calculator                        ... done                                                                                   
+Starting load-balancer                     ... done                                                                                   
+Creating scaling-exercise-master_compute_2 ... done                                                                                   
+Creating scaling-exercise-master_compute_3 ... done                                                                                   
+Creating scaling-exercise-master_compute_4 ... done                                                                                   
+Creating scaling-exercise-master_compute_5 ... done  
