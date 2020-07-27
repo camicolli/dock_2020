@@ -1,0 +1,58 @@
+version: '3.5'
+
+services: 
+    backend:
+        container_name: backend
+        build: 
+            context: .
+            dockerfile: Dockerfile_back
+        volumes:
+            - type: bind
+              source: ./logs.txt
+              target: /usr/app/logs.txt
+        environment:
+            - FRONT_URL=http://localhost
+            - REDIS=redis
+            - DB_USERNAME=ducky
+            - DB-PASSWORD=yellow
+            - DB-NAME=postgres_database
+            - DB-HOST=db
+        ports:
+            - 8000:8000
+        depends_on: 
+            - db
+
+    frontend:
+        container_name: frontend
+        build:
+            context: .
+            dockerfile: Dockerfile_front
+        environment:
+            - API_URL=http://localhost/api
+        ports:
+            - 5000:5000
+        depends_on: 
+            - backend
+
+    web:
+        container_name: nginx
+        image: nginx 
+        ports:
+            - 80:80
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf      
+    redis:
+        container_name: redis
+        image: redis
+
+    db:
+        container_name: db
+        image: postgres
+        restart: unless-stopped
+        environment: 
+            - POSTGRES_PASSWORD=yellow
+            - POSTGRES_USER=ducky
+        volumes: 
+            - database:/var/lib/postgresql/data
+volumes:
+    database:
