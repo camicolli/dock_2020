@@ -1,0 +1,15 @@
+#Let's use apline instead of ubuntu since it's lighter
+FROM alpine
+
+WORKDIR /usr/app
+
+#we need apk instead of ubuntu's apt-get 
+RUN apk update && apk add nodejs nodejs-npm git 
+RUN git clone https://github.com/docker-hy/frontend-example-docker.git . 
+RUN npm install
+
+#exposing port 5000
+EXPOSE 5000
+
+#and giving command npm start
+CMD ["npm", "start"]
