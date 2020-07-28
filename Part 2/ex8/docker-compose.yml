@@ -14,9 +14,9 @@ services:
             - FRONT_URL=http://localhost
             - REDIS=redis
             - DB_USERNAME=ducky
-            - DB-PASSWORD=yellow
-            - DB-NAME=postgres_database
-            - DB-HOST=db
+            - DB_PASSWORD=yellow
+            - DB_NAME=postgres_database
+            - DB_HOST=db
         ports:
             - 8000:8000
 
