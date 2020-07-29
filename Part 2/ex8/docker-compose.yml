@@ -15,8 +15,8 @@ services:
             - REDIS=redis
             - DB_USERNAME=ducky
             - DB_PASSWORD=yellow
-            - DB_NAME=postgres_database
-            - DB_HOST=db
+            - DB_NAME=messages
+            - DB_HOST=postgres
         ports:
             - 8000:8000
 
@@ -32,7 +32,7 @@ services:
             - 5000:5000
 
 
-    web:
+    nginx:
         container_name: nginx
         image: nginx 
         ports:
@@ -46,13 +46,14 @@ services:
         container_name: redis
         image: redis
 
-    db:
-        container_name: db
+    postgres:
+        container_name: postgres
         image: postgres
         restart: unless-stopped
         environment: 
             - POSTGRES_PASSWORD=yellow
             - POSTGRES_USER=ducky
+            - POSTGRES_DB=messages
         volumes: 
             - database:/var/lib/postgresql/data
 volumes:
