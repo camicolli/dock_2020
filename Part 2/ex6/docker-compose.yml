@@ -45,6 +45,7 @@ services:
         environment: 
             - POSTGRES_PASSWORD=yellow
             - POSTGRES_USER=ducky
+            - POSTGRES_DB=postgres_database
         volumes: 
             - database:/var/lib/postgresql/data
 volumes:
