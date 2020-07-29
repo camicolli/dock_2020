@@ -1,0 +1,2 @@
+The exercise 10 material is the same as in ex9 since 
+all the buttons functioned correctly already in the previous exercise.
