@@ -1,0 +1,12 @@
+
+#BEFORE
+
+C:\Users\camilla.colliander\dockercourse\Part3\ex1>docker history ex1_backend
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+efaee38a8f64        11 days ago         /bin/sh -c #(nop)  CMD ["npm" "start"]          0B
+2763aa084347        11 days ago         /bin/sh -c #(nop)  EXPOSE 8000                  0B
+52676263fe1e        11 days ago         /bin/sh -c npm install                          36.5MB
+489812289d3b        11 days ago         /bin/sh -c git clone https://github.com/dock…   394kB
+e8e68dd87dc2        11 days ago         /bin/sh -c apk update && apk add nodejs node…   66.9MB
+b5989a7e70d1        11 days ago         /bin/sh -c #(nop) WORKDIR /usr/app              0B
+a24bb4013296        2 months ago        /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B
