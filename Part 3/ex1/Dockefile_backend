@@ -1,0 +1,14 @@
+#Let's use apline instead of ubuntu since it's lighter
+FROM alpine
+
+WORKDIR /usr/app
+
+#we need apk instead of ubuntu's apt-get and to minimize size add no cashe
+RUN apk add --no-cache nodejs nodejs-npm git && git clone https://github.com/docker-hy/backend-example-docker . && npm install && \
+    apk del git
+
+#exposing port 8000
+EXPOSE 8000
+
+#and giving command npm start
+CMD ["npm", "start"]
