@@ -10,3 +10,12 @@ e8e68dd87dc2        11 days ago         /bin/sh -c apk update && apk add nodejs 
 b5989a7e70d1        11 days ago         /bin/sh -c #(nop) WORKDIR /usr/app              0B
 a24bb4013296        2 months ago        /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B
 
+#AFTER
+
+C:\Users\camilla.colliander\dockercourse\Part3\ex1>docker history ex1_frontend
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+21b0cf03d3ef        5 minutes ago       /bin/sh -c #(nop)  CMD ["npm" "start"]          0B
+dfc1630f067d        5 minutes ago       /bin/sh -c #(nop)  EXPOSE 5000                  0B
+64e39a97a4dd        5 minutes ago       /bin/sh -c apk add --no-cache nodejs nodejs-…   262MB
+b5989a7e70d1        11 days ago         /bin/sh -c #(nop) WORKDIR /usr/app              0B
+a24bb4013296        2 months ago        /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B
