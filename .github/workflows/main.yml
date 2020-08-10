@@ -14,9 +14,9 @@ jobs:
         working-directory: Part3/ex2
 
     steps:
-      - name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
+     # - name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
       - uses: actions/checkout@v2
-      - uses: jctaveras/heroku-deploy@v1.0.0  # use the latest version of the action
+      - uses: akhileshns/heroku-deploy@v3.4.6 #jctaveras/heroku-deploy@v1.0.0  # use the latest version of the action
         with:
           heroku_email: ${{ secrets.EMAIL_ACCOUNT }} # your heroku email
           heroky_api_key: ${{ secrets.API_KEY }} # your  heroku api key
