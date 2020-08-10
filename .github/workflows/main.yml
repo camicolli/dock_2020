@@ -15,13 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      #- uses: akhileshns/heroku-deploy@v3.4.6  # use the latest version of the action
-      #- name: Login to Heroku
-      #  env:
-      #    HEROKU_API_KEY: ${{ secrets.API_KEY }}
-      #  run: heroku container:login
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.4.6  # use the latest version of the action
+      - uses: akhileshns/heroku-deploy@v3.4.6  # use the latest version of the action
         with:
           appdir: Part3/ex2
           heroku_email: ${{ secrets.EMAIL_ACCOUNT }} # your heroku email
