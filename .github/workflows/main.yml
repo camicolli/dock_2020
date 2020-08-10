@@ -14,7 +14,11 @@ jobs:
         working-directory: Part3/ex2
 
     steps:
-     # - name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
+      - name: Login to Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:login
+      #- name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.4.6  # use the latest version of the action
         with:
