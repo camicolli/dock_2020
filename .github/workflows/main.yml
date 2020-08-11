@@ -1,28 +1,37 @@
-name: 'Deploy to Heroku' #set whatevername you want to your github job
+name: DEPLOYING TO HEROKU ex3.2
+
 on:
   push:
-    branches: 
-      - master
-       
-      # set the events you would like to trigger this job
+    tags:
+      - '*'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
-        working-directory: Part3/ex2
-
+        working-directory: Part3/ex2 #The Dockerfile is not in root, so we need to specify the correct location
     steps:
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.4.6  # use the latest version of the action
-        with:
-          appdir: Part3/ex2
-          heroku_email: ${{ secrets.EMAIL_ACCOUNT }} # your heroku email
-          heroku_api_key: ${{ secrets.API_KEY }} # your  heroku api key
-          heroku_app_name: ${{ secrets.APP_NAME }} # you aplication name
-          usedocker: true
-          #dockerfile: 'C:\Users\camilla.colliander\dockercourse\Part3\ex2' # set the path to the folder wher the Dokerfile is located
-         # options: '' # Docker Build Options
-
-
+      - name: Step 1 Loging in to Docker
+        run: docker login -u ${{ secrets.D_USERNAME }} -p ${{ secrets.D_PASSWORD }}
+      - name: Step 2 Building the Frontend dockerfile
+        run: docker build -t frontend .
+      - name: Step 3 we need to tag it to Dockerhub and Heroku
+        run: |
+          docker tag frontend ${{ secrets.D_USERNAME }}/deploy-exercise
+          docker tag frontend registry.heroku.com/${{ secrets.APP_NAME }}/web
+      - name: Step 4 Pushing app to Dockerhub
+        run: docker push ${{ secrets.D_USERNAME }}/deploy-exercise
+      - name: Step 5 Login into Heroku #For the push to work we need to first login. Otherwise we get an error.
+        env:
+          HEROKU_API_KEY: ${{ secrets.API_KEY }} #Heroku API key is mandatory
+        run: heroku container:login
+      - name: Step 6 Now we finally push to Heroku
+        run: docker push registry.heroku.com/${{ secrets.APP_NAME }}/web
+      - name: Final step 7 we release the heroku container
+        env:
+          HEROKU_API_KEY: ${{ secrets.API_KEY }}
+        run: heroku container:release -a ${{ secrets.APP_NAME }} web
+        
