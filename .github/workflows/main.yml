@@ -15,7 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Step 1 Loging into Docker
-        run: docker login --username=${{ secrets.D_USERNAME }} --password=${{ secrets.D_PASSWORD }}
+        #run: docker login --username=${{ secrets.D_USERNAME }} --password=${{ secrets.D_PASSWORD }}
+        run: docker login --username=camicolli --password=Meelis1993
       - name: Step 2 Building the Frontend dockerfile
         run: docker build -t frontend .
       - name: Step 3 we need to tag it to Dockerhub and Heroku
