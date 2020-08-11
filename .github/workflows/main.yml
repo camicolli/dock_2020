@@ -14,8 +14,8 @@ jobs:
         working-directory: Part3/ex2 #The Dockerfile is not in root, so we need to specify the correct location
     steps:
       - uses: actions/checkout@v2
-      - name: Step 1 Loging in to Docker
-        run: docker login -u ${{ secrets.D_USERNAME }} -p ${{ secrets.D_PASSWORD }}
+      - name: Step 1 Loging into Docker
+        run: docker login --username=${{ secrets.D_USERNAME }} --password=${{ secrets.D_PASSWORD }}
       - name: Step 2 Building the Frontend dockerfile
         run: docker build -t frontend .
       - name: Step 3 we need to tag it to Dockerhub and Heroku
