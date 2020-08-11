@@ -1,36 +1,17 @@
-on:
-  push:
-    branches: 
-      - master
-
+name: 'Testing Heroku Deploy' #set whatevername you want to your github job
+on: {push} # set the events you would like to trigger this job
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        #shell: bash
-        working-directory: Part3/ex2 #The Dockerfile is not in root, so we need to specify the correct location
     steps:
-      - uses: actions/checkout@v2
-      - name: Step 1 Loging into Docker
-        #run: docker login --username=${{ secrets.D_USERNAME }} --password=${{ secrets.D_PASSWORD }}
-        run: docker login --username=camicolli --password=Meelis1993
-      - name: Step 2 Building the Frontend dockerfile
-        run: docker build -t frontend .
-      - name: Step 3 we need to tag it to Dockerhub and Heroku
-        run: |
-          docker tag frontend ${{ secrets.D_USERNAME }}/deploy-exercise
-          docker tag frontend registry.heroku.com/${{ secrets.APP_NAME }}/web
-      - name: Step 4 Pushing app to Dockerhub
-        run: docker push ${{ secrets.D_USERNAME }}/deploy-exercise
-      - name: Step 5 Login into Heroku #For the push to work we need to first login. Otherwise we get an error.
-        env:
-          HEROKU_API_KEY: ${{ secrets.API_KEY }} #Heroku API key is mandatory
-        run: heroku container:login
-      - name: Step 6 Now we finally push to Heroku
-        run: docker push registry.heroku.com/${{ secrets.APP_NAME }}/web
-      - name: Final step 7 we release the heroku container
-        env:
-          HEROKU_API_KEY: ${{ secrets.API_KEY }}
-        run: heroku container:release -a ${{ secrets.APP_NAME }} web
-        
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
+        id: heroku
+        uses: jctaveras/heroku-deploy@v1.0.0  # use the latest version of the action
+        with:
+          email: ${{ secrets.EMAIL_ACCOUNT }} # your heroku email
+          api_key: ${{ secrets.API_KEY }} # your  heroku api key
+          app_name: ${{ secrets.APP_NAME }} # you aplication name
+          dockerfile_path: 'https://github.com/camicolli/dock_2020/tree/master/Part%203/ex2' # set the path to the folder wher the Dokerfile is located
+         # options: '' # Docker Build Options
