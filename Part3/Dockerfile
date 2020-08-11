@@ -13,4 +13,4 @@ RUN apk add --no-cache nodejs nodejs-npm git && \
 
 USER app
 
-CMD CMD ["npm", "start", "{$PORT}"] 
+CMD ["npm", "start", "{$PORT}"] 
