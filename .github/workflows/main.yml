@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        shell: bash
+        #shell: bash
         working-directory: Part3/ex2 #The Dockerfile is not in root, so we need to specify the correct location
     steps:
       - uses: actions/checkout@v2
